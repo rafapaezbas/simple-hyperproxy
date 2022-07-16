@@ -23,11 +23,9 @@ module.exports = class SimpleHyperProxy {
   async bind (key) {
     return new Promise(resolve => {
       const server = net.createServer(async (socket_) => {
-        const node = new DHT(this.opts)
-        const socket = node.connect(key)
+        const socket = this.node.connect(key)
         await once(socket, 'open')
         pipeline(socket_, socket, socket_, () => {
-          node.destroy()
           server.close()
         })
       })

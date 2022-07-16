@@ -15,6 +15,7 @@
     "streamx": "^2.12.4"
   },
   "devDependencies": {
+    "@hyperswarm/testnet": "^3.0.0",
     "axios": "^0.27.2",
     "brittle": "^2.4.0",
     "standard": "^17.0.0"
