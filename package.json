@@ -1,0 +1,22 @@
+{
+  "name": "simple-hyperproxy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "brittle test/index.test.js",
+    "fix": "standard --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hyperswarm/dht": "^6.2.0",
+    "streamx": "^2.12.4"
+  },
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "brittle": "^2.4.0",
+    "standard": "^17.0.0"
+  }
+}
