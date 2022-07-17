@@ -13,7 +13,7 @@ if (command === 'expose') {
 } else if (command === 'bind') {
   const key = Buffer.from(process.argv[3], 'hex')
   const port = await proxy.bind(key)
-  console.log(`Binded {key} to port ${port}.`)
+  console.log(`Binded ${key} to port ${port}`)
 } else {
   printHelp()
 }

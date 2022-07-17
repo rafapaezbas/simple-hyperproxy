@@ -6,6 +6,8 @@ P2P proxy built on top of [Hyperswarm DHT.](https://github.com/hyperswarm/dht)
 npm install -g simple-hyperproxy
 ```
 
+Requires Node version >= v14.17.0
+
 ## Usage
 
 ```bash
