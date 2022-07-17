@@ -1,17 +1,17 @@
 {
   "name": "simple-hyperproxy",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "P2P proxy built on top of [Hyperswarm DHT.](https://github.com/hyperswarm/dht)",
   "main": "index.js",
   "bin": {
-    "simple-hyperproxy": "./bin.mjs"
+    "simple-hyperproxy": "bin.mjs"
   },
   "scripts": {
     "test": "brittle test/index.test.js",
     "fix": "standard --fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "rafapaezbas",
   "license": "ISC",
   "dependencies": {
     "@hyperswarm/dht": "^6.2.0",
@@ -24,5 +24,16 @@
     "axios": "^0.27.2",
     "brittle": "^2.4.0",
     "standard": "^17.0.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafapaezbas/simple-hyperproxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rafapaezbas/simple-hyperproxy/issues"
+  },
+  "homepage": "https://github.com/rafapaezbas/simple-hyperproxy#readme"
 }
