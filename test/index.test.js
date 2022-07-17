@@ -39,12 +39,16 @@ solo('stress test', async ({ pass, plan, teardown }) => {
   const key = await hyperproxy.expose(port)
   const newPort = await hyperproxy.bind(key)
 
+  console.time()
+
   const requests = []
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 75; i++) {
     requests.push(axios.get('http://localhost:' + newPort))
   }
 
   await Promise.all(requests)
+
+  console.timeEnd()
 
   pass()
 })
