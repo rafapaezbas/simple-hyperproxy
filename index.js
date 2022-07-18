@@ -22,14 +22,14 @@ module.exports = class SimpleHyperProxy {
     return keyPair.publicKey
   }
 
-  async bind (key) {
+  async bind (key, port = 0) {
     return new Promise(resolve => {
       this.server = net.createServer((socket_) => {
         const socket = this.node.connect(key)
         pipeline(socket_, socket, socket_)
       })
 
-      this.server.listen(0, () => {
+      this.server.listen(port, () => {
         resolve(this.server.address().port)
       })
     })
