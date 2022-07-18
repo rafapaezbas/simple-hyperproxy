@@ -14,15 +14,20 @@ module.exports = class SimpleHyperProxy {
   async expose (port, seed) {
     const server = this.node.createServer()
     server.on('connection', (socket) => {
-      const socket_ = net.connect(port)
+
+    const socket_ = net.connect(port)
       pipeline(socket, socket_, socket)
     })
+
     const keyPair = seed ? DHT.keyPair(hash(Buffer.from(seed))) : DHT.keyPair()
     await server.listen(keyPair)
     return keyPair.publicKey
   }
 
   async bind (key, port = 0) {
+    // TODO: support multiple proxies
+    if (this.server) await this.server.close()
+
     return new Promise(resolve => {
       this.server = net.createServer((socket_) => {
         const socket = this.node.connect(key)
