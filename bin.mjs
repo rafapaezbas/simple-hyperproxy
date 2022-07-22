@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 
 import SimpleHyperProxy from './index.js'
-const command = process.argv[2]
+
+const args = process.argv.slice(2)
+const command = args[2]
 
 const proxy = new SimpleHyperProxy()
 
 if (command === 'expose') {
-  const port = process.argv[3]
-  const seed = process.argv[4]
+  const port = args[3]
+  const seed = args[4]
   const key = await proxy.expose(port, seed)
   console.log(`Exposed localhost:${port} in key ${key.toString('hex')}`)
 } else if (command === 'bind') {
-  const key = Buffer.from(process.argv[3], 'hex')
-  const port = await proxy.bind(key)
+  const key = Buffer.from(args[3], 'hex')
+  const port = await proxy.bind(key, args[4])
   console.log(`Binded ${key.toString('hex')} to port ${port}`)
 } else {
   printHelp()
