@@ -14,12 +14,11 @@ module.exports = class SimpleHyperProxy {
   async expose (port, seed) {
     const server = this.node.createServer()
     server.on('connection', (socket) => {
-
-    const socket_ = net.connect(port)
+      const socket_ = net.connect(port)
       pipeline(socket, socket_, socket)
     })
 
-    const keyPair = seed ? DHT.keyPair(hash(Buffer.from(seed))) : DHT.keyPair()
+    const keyPair = this.opts.keyPair || seed ? DHT.keyPair(hash(Buffer.from(seed))) : DHT.keyPair()
     await server.listen(keyPair)
     return keyPair.publicKey
   }
