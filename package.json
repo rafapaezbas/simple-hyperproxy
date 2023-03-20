@@ -1,6 +1,6 @@
 {
   "name": "simple-hyperproxy",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "P2P proxy built on top of [Hyperswarm DHT.](https://github.com/hyperswarm/dht)",
   "main": "index.js",
   "bin": {
