@@ -1,7 +1,7 @@
 const b4a = require('b4a')
 const { crypto_generichash } = require('sodium-universal') // eslint-disable-line
 const { pipeline } = require('streamx')
-const DHT = require('@hyperswarm/dht')
+const DHT = require('hyperdht')
 const net = require('net')
 
 module.exports = class SimpleHyperProxy {
@@ -18,9 +18,9 @@ module.exports = class SimpleHyperProxy {
       pipeline(socket, socket_, socket)
     })
 
-    const keyPair = this.opts.keyPair || seed ? DHT.keyPair(hash(Buffer.from(seed))) : DHT.keyPair()
+    const keyPair = this.opts.keyPair ? this.opts.keyPair : !seed ? DHT.keyPair() : DHT.keyPair(hash(Buffer.from(seed)))
     await server.listen(keyPair)
-    return keyPair.publicKey
+    return server.publicKey
   }
 
   async bind (key, port = 0) {

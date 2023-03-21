@@ -16,6 +16,7 @@
   "dependencies": {
     "@hyperswarm/dht": "^6.2.0",
     "b4a": "^1.5.3",
+    "hyperdht": "^6.5.2",
     "sodium-universal": "^3.1.0",
     "streamx": "^2.12.4"
   },
