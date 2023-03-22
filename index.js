@@ -40,8 +40,8 @@ module.exports = class SimpleHyperProxy {
   }
 
   destroy () {
-    this.server.close()
-    this.node.destroy()
+    if (this.server) this.server.close()
+    if (this.node) this.node.destroy()
   }
 }
 
